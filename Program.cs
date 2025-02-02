@@ -17,10 +17,10 @@ namespace HackerRank
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
-            //Code to test here
+            //Code to test below this line
             Console.WriteLine(flatlandSpaceStations(5, new int[] { 0, 4 }));
             Console.ReadLine();
-            //Code to test here
+            //Code to test above this line
 
             stopWatch.Stop();
             TimeSpan ts = stopWatch.Elapsed;
