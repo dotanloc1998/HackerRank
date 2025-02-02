@@ -37,8 +37,8 @@ namespace HackerRank
             StreamReader readCase = new StreamReader(@"C:\Users\thuyl\Desktop\HackerRank\case.txt");
             StreamReader readResult = new StreamReader(@"C:\Users\thuyl\Desktop\HackerRank\result.txt");
             StreamWriter writeResult = new StreamWriter(@"C:\Users\thuyl\Desktop\HackerRank\wrong.txt");
-            string lineCase = "";
-            string lineResult = "";
+            string? lineCase = "";
+            string? lineResult = "";
             while ((lineCase = readCase.ReadLine()) != null && (lineResult = readResult.ReadLine()) != null)
             {
                 string[] lineCase1 = lineCase.Split(' ');
