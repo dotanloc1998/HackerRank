@@ -18,14 +18,14 @@ namespace HackerRank
             stopWatch.Start();
 
             //Code to test below this line
+            Console.WriteLine();
             Console.WriteLine(flatlandSpaceStations(5, new int[] { 0, 4 }));
-            Console.ReadLine();
             //Code to test above this line
 
             stopWatch.Stop();
             TimeSpan ts = stopWatch.Elapsed;
             // Format and display the TimeSpan value.
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            string elapsedTime = string.Format("{0:00}:{1:00}:{2:00}.{3:00}",
                 ts.Hours, ts.Minutes, ts.Seconds,
                 ts.Milliseconds / 10);
             Console.WriteLine("RunTime " + elapsedTime);
