@@ -1481,7 +1481,7 @@ namespace HackerRank
 
         static int flatlandSpaceStations(int n, int[] c)
         {
-            if(n == c.Length) return 0;
+            if (n == c.Length) return 0;
             List<int> distances = new List<int>();
             for (int i = 0; i < n; i++)
             {
