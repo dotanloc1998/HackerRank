@@ -19,7 +19,11 @@ namespace HackerRank
 
             //Code to test below this line
             Console.WriteLine();
-            Console.WriteLine(flatlandSpaceStations(5, new int[] { 0, 4 }));
+            List<string> result = cavityMap(new List<string> { "1112", "1912", "1892", "1234" });
+            foreach (var item in result)
+            {
+                System.Console.WriteLine(item);
+            }
             //Code to test above this line
 
             stopWatch.Stop();
@@ -1497,6 +1501,51 @@ namespace HackerRank
                 distances.Add(minDistance);
             }
             return distances.Max();
+        }
+
+        static List<string> cavityMap(List<string> grid)
+        {
+            List<string> result = grid;
+            if (grid.Count >= 3)
+            {
+                result = [grid[0]];
+                for (int i = 1; i < grid.Count - 1; i++)
+                {
+                    char[] top = grid[i - 1].ToCharArray();
+                    char[] current = grid[i].ToCharArray();
+                    char[] bottom = grid[i + 1].ToCharArray();
+                    string newLine = string.Empty;
+                    for (int j = 0; j < current.Length; j++)
+                    {
+                        if (j != 0 && j != current.Length - 1)
+                        {
+                            int topNumber;
+                            int currNumber;
+                            int bottomNumber;
+                            int leftNumber;
+                            int rightNumber;
+                            if (int.TryParse(current[j].ToString(), out currNumber)
+                             && int.TryParse(top[j].ToString(), out topNumber)
+                             && int.TryParse(bottom[j].ToString(), out bottomNumber)
+                             && int.TryParse(current[j - 1].ToString(), out leftNumber)
+                             && int.TryParse(current[j + 1].ToString(), out rightNumber))
+                            {
+                                if (currNumber > topNumber
+                                && currNumber > bottomNumber
+                                && currNumber > leftNumber
+                                && currNumber > rightNumber)
+                                {
+                                    current[j] = 'X';
+                                }
+                            }
+                        }
+                        newLine += current[j];
+                    }
+                    result.Add(newLine);
+                }
+                result.Add(grid[grid.Count - 1]);
+            }
+            return result;
         }
         #endregion
     }
