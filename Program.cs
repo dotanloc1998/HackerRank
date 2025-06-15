@@ -19,7 +19,7 @@ namespace HackerRank
 
             //Code to test below this line
             Console.WriteLine();
-            List<string> result = cavityMap(new List<string> { "1112", "1912", "1892", "1234" });
+            List<int> result = stones(99, 1, 1);
             foreach (var item in result)
             {
                 System.Console.WriteLine(item);
@@ -1545,6 +1545,21 @@ namespace HackerRank
                 }
                 result.Add(grid[grid.Count - 1]);
             }
+            return result;
+        }
+
+        static List<int> stones(int n, int a, int b)
+        {
+            List<int> result = new List<int>();
+            int firstStoneNum = a * (n - 1);
+            result.Add(firstStoneNum);
+            for (int i = 1; i <= n - 1; i++)
+            {
+                int stoneNum = firstStoneNum - (a * i) + (b * i);
+                result.Add(stoneNum);
+            }
+            result = result.Distinct().ToList();
+            result.Sort();
             return result;
         }
         #endregion
