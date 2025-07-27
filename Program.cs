@@ -19,11 +19,7 @@ namespace HackerRank
 
             //Code to test below this line
             Console.WriteLine();
-            List<int> result = stones(99, 1, 1);
-            foreach (var item in result)
-            {
-                System.Console.WriteLine(item);
-            }
+            System.Console.WriteLine(halloweenParty(1856378));
             //Code to test above this line
 
             stopWatch.Stop();
@@ -1561,6 +1557,13 @@ namespace HackerRank
             result = result.Distinct().ToList();
             result.Sort();
             return result;
+        }
+
+        static long halloweenParty(int k)
+        {
+            long verticalCut = k / 2;
+            long horizontalCut = k - verticalCut;
+            return verticalCut * horizontalCut;
         }
         #endregion
     }
